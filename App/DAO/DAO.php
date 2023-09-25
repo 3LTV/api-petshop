@@ -32,10 +32,3 @@ abstract class DAO extends PDO
         }
     }
 }
-
-interface IDAO
-{
-    public function select(Model $model);
-    public function selectById(Model $model);
-    public function delete(Model $model);
-}

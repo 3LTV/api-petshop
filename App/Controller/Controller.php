@@ -18,7 +18,7 @@ abstract class Controller
         file_put_contents($log_file_data, $log_msg . "\n");
     }
 
-    public static function getResponseAsJSON($data, int $type)
+    public static function getResponseAsJSON($data)
     {
         header("Access-Control-Allow-Origin: *");
         header("Content-Type: application/json; charset=UTF-8");
@@ -26,12 +26,7 @@ abstract class Controller
         header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
         header("Pragma: public");
 
-        $response = [
-            'Type' => $type,
-            'Data' => $data
-        ];
-
-        exit(json_encode($response, JSON_UNESCAPED_UNICODE));
+        exit(json_encode($data, JSON_UNESCAPED_UNICODE));
     }
 
     public static function setResponseAsJSON($data, $request_status = true)

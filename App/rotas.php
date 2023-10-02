@@ -1,7 +1,8 @@
 <?php
 
 use App\Controller\ProdutoController;
-use App\Model\ProdutoModel;
+use App\Controller\ServicoController;
+use App\Controller\EnderecoController;
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -27,22 +28,45 @@ switch ($uri)
         ProdutoController::removerProduto();
     break;
 
-    /**
-    case "/api/produto/test":
-        ProdutoController::test();
+    // Serviço
+    case "/api/servico":
+        ServicoController::getServico();
     break;
 
-    case "/api/produto/novo":
-        ?>
-            <form method="POST" action="/api/produto/test" enctype="multipart/form-data">
-                <input name="nome" id="nome" placeholder="nome"/>
-                <input name="id" id="id" type="number" placeholder="id"/>
-                <input name="preco" id="preco" type="number" step="any" placeholder="preco"/>
-                <input type="file" name="img" id="img" placeholder="img"/>
-                <input type="submit">enviar</button>
-            </form>
-
-        <?php
+    case "/api/servico/by-id":
+        ServicoController::getServicoById();
     break;
-     */
-}?>
+
+    case "/api/servico/add":
+        ServicoController::addServico();
+    break;
+
+    case "/api/servico/edit":
+        ServicoController::editServico();
+    break;
+
+    case "/api/servico/remove":
+        ServicoController::removerServico();
+    break;
+
+    // Endereço
+    case "/api/endereco":
+        EnderecoController::getEndereco();
+    break;
+
+    case "/api/endereco/by-id":
+        EnderecoController::getEnderecoById();
+    break;
+
+    case "/api/endereco/add":
+        EnderecoController::addEndereco();
+    break;
+
+    case "/api/endereco/edit":
+        EnderecoController::editEndereco();
+    break;
+
+    case "/api/endereco/remove":
+        EnderecoController::removerEndereco();
+    break;
+}

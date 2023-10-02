@@ -2,13 +2,13 @@
 
 namespace App\DAO;
 
-use App\Model\ProdutoModel;
+use App\Model\ServicoModel;
 
-class ProdutoDAO extends DAO
+class ServicoDAO extends DAO
 {
     public function select()
     {
-        $sql = "SELECT * FROM Produto";
+        $sql = "SELECT * FROM Servico";
 
         $stmt = $this->conexao->prepare($sql);
 
@@ -17,9 +17,9 @@ class ProdutoDAO extends DAO
         return $stmt->fetchAll(DAO::FETCH_CLASS);
     }
 
-    public function selectById(ProdutoModel $model)
+    public function selectById(ServicoModel $model)
     {
-        $sql = "SELECT * FROM Produto WHERE id = ?";
+        $sql = "SELECT * FROM Servico WHERE id = ?";
 
         $stmt = $this->conexao->prepare($sql);
 
@@ -30,9 +30,9 @@ class ProdutoDAO extends DAO
         return $stmt->fetchObject(get_class($model));
     }
 
-    public function insert(ProdutoModel $model)
+    public function insert(ServicoModel $model)
     {
-        $sql = "INSERT INTO Produto(nome, preco, image_path) VALUES(?, ?, ?)";
+        $sql = "INSERT INTO Servico(nome, preco, image_path) VALUES(?, ?, ?)";
 
         $stmt = $this->conexao->prepare($sql);
 
@@ -45,9 +45,9 @@ class ProdutoDAO extends DAO
         return $this->conexao->lastInsertId();
     }
 
-    public function update(ProdutoModel $model)
+    public function update(ServicoModel $model)
     {
-        $sql = "UPDATE Produto SET nome = ?, preco = ?, image_path = ? WHERE id = ?";
+        $sql = "UPDATE Servico SET nome = ?, preco = ?, image_path = ? WHERE id = ?";
 
         $stmt = $this->conexao->prepare($sql);
 
@@ -61,9 +61,9 @@ class ProdutoDAO extends DAO
         return $model->id;
     }
 
-    public function delete(ProdutoModel $model)
+    public function delete(ServicoModel $model)
     {
-        $sql = "DELETE FROM Produto WHERE id = ?";
+        $sql = "DELETE FROM Servico WHERE id = ?";
 
         $stmt = $this->conexao->prepare($sql);
 

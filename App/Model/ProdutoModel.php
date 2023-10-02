@@ -9,6 +9,15 @@ class ProdutoModel extends Model
 {
     public $id, $nome, $preco, $image_path;
 
+    public static function receiveGetParams()
+    {
+        foreach ($_GET as $key => $value)
+        {
+            echo "<script>console.log('$key')</script>";
+            echo "<script>console.log('$value')</script>";
+        }
+    }
+
     public function getAll()
     {
         $this->rows = (new ProdutoDAO)->select();

@@ -96,4 +96,18 @@ abstract class Controller
         else
             throw new Exception("Variável $var_name não identificada");
     }
+
+    public static function saveFile(string $file_name)
+    {
+        var_dump($_FILES[$file_name]);
+        $nome = $_FILES[$file_name]["name"];
+        $nome_temp = $_FILES[$file_name]["tmp_name"];
+
+        $caminho_destino = "Files//" . $nome;
+
+        move_uploaded_file($nome_temp, $caminho_destino);
+
+        return $caminho_destino;
+    }
+
 }

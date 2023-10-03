@@ -65,17 +65,6 @@ class ServicoController extends Controller
         }
     }
 
-    public static function test()
-    {
-        var_dump($_FILES['img']);
-        $nome = $_FILES["img"]["name"];
-        $nome_temp = $_FILES["img"]["tmp_name"];
-
-        $caminho_destino = "Files//" . $nome;
-
-        move_uploaded_file($nome_temp, $caminho_destino);
-    }
-
     public static function editServico()
     {
         try

@@ -4,6 +4,7 @@ use App\Controller\ProdutoController;
 use App\Controller\ServicoController;
 use App\Controller\EnderecoController;
 use App\Controller\VendaController;
+use App\Controller\ClienteController;
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -91,5 +92,27 @@ switch ($uri)
 
     case "/api/venda/remove":
         VendaController::removerVenda();
+    break;
+
+    // Cliente;
+
+    case "/api/cliente":
+        ClienteController::getCliente();
+    break;
+
+    case "/api/cliente/by-id":
+        ClienteController::getClienteById();
+    break;
+
+    case "/api/cliente/add":
+        ClienteController::addCliente();
+    break;
+
+    case "/api/cliente/edit":
+        ClienteController::editCliente();
+    break;
+
+    case "/api/cliente/remove":
+        ClienteController::removerCliente();
     break;
 }
